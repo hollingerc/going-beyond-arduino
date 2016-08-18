@@ -1,2 +1,2 @@
 # blink3
-This is the code for blinking LEDs, part of my Going Beyond Arduino video series.
+This is the code for my Going Beyond Arduino video series.
