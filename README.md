@@ -1,1 +1,1 @@
-This is the code for my Going Beyond Arduino video series.
+This is the code, schematics and other data for my Going Beyond Arduino video series.
