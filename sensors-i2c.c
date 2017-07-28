@@ -1,5 +1,5 @@
 /*
- * Sensors.c
+ * sensors-i2c.c
  *
  * Created: 2017-07-22
  * Author : Craig Hollinger
