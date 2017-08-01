@@ -10,7 +10,9 @@
  * communicates on the I2C bus.  The OLED display also communicates on the I2C
  * bus.
  *
- * The I2C SCL line is on Arduino pin A5 and the SDA line is A4.
+ * The I2C lines are connected as follows:
+ *    SCL - Arduino A5 (ATMEGA PORTC5)
+ *    SDA - Arduino A4 (ATMEGA PORTC4)
  *
  * This file is free software; you can redistribute it and/or modify
  * it under the terms of either the GNU General Public License version 3
