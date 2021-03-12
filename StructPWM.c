@@ -61,7 +61,7 @@ int main(void)
      - generate interrupt when OCR2A matches TCNT2
      - load OCR2A with the delay count to get 10ms delay
    */
-  tc2_get_config(timer2);
+  tc2_get_config(&timer2);
   timer2.tccr2a.wgm2l = TC2_TCCR2A_M2_CTC; /* TC2 Mode 2, Clear timer on match */
   timer2.tccr2a.com2a = TC2_TCCR2A_OC2A_MODE0; /* OC0A pin disabled */
   timer2.tccr2a.com2b = TC2_TCCR2A_OC2B_MODE0; /* OC0B pin disabled */
@@ -69,13 +69,13 @@ int main(void)
   timer2.tccr2b.wgm2h = 0; /* upper bit of TC0 Mode */
   timer2.ocr2a = (F_CPU / 1024 / 100 - 1);
   timer2.timsk2.ocie2a = 1; /* enable OCIE2A, match A interrupt */
-  tc2_set_config(timer2);
+  tc2_set_config(&timer2);
 
   /* Set up Timer 0 to generate a Fast PWM signal:
      - clocked by F_CPU (fastest PWM frequency)
      - non-inverted output
    */
-  tc0_get_config(timer0);
+  tc0_get_config(&timer0);
 //  timer0.tccr0a.wgm0l = TC0_TCCR0A_M1_PWM_FF; /* TC0 Mode 1, Phase Correct PWM */
   timer0.tccr0a.wgm0l = TC0_TCCR0A_M3_FASTPWM_FF; /* TC0 Mode 3, Fast PWM */
   timer0.tccr0a.com0a = TC0_TCCR0A_OC0A_MODE2; /* clear OC0A on match */
@@ -84,7 +84,7 @@ int main(void)
   timer0.tccr0b.wgm0h = 0; /* upper bit of TC0 Mode */
   timer0.ocr0a = 0; /* start with duty cycle = 0% */
   timer0.ocr0b = 255; /* start with duty cycle = 100% */
-  tc0_set_config(timer0);
+  tc0_set_config(&timer0);
 
   /* enable the interrupt system */
   sei();
